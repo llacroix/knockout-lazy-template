@@ -40,7 +40,7 @@
         define(["knockout", "exports"], factory);
     } else {
         // <script> tag: use the global `ko` object, attaching a `mapping` property
-        factory(ko, ko.validation = {});
+        factory(ko, ko.lazyTemplate = {});
     }
 }(function ( ko, exports ) {
 
@@ -118,16 +118,14 @@
     };
 
 
-    ko.lazyTemplate = {
-        init: function (opts) {
-            if (opts.loader) {
-                loader = opts.loader;
-            }
-
-            appendTemplate('empty', ' ');
-
-            ko.bindingHandlers['lazy-template'] = lazyTemplate;
-            ko.virtualElements.allowedBindings['lazy-template'] = true;
+    exports.init = function (opts) {
+        if (opts.loader) {
+            loader = opts.loader;
         }
+
+        appendTemplate('empty', ' ');
+
+        ko.bindingHandlers['lazy-template'] = lazyTemplate;
+        ko.virtualElements.allowedBindings['lazy-template'] = true;
     };
 }))
