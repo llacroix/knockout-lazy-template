@@ -5,6 +5,8 @@
 
     Description: Lazy template loading  Library for KnockoutJS
 ===============================================================================
+    https://github.com/llacroix/knockout-lazy-template
+===============================================================================
 */
 
 /*jshint
